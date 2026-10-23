@@ -1,0 +1,62 @@
+<main class="employee-page">
+  <header class="employee-page-header">
+    <div class="employee-brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false">
+        <path d="M16 20v-1.5a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4V20m7-9a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7-5h6m-3-3v6m-3 9h6" />
+      </svg>
+    </div>
+    <div>
+      <p class="employee-eyebrow">GESTIÓN DE PERSONAL</p>
+      <h1>Empleados</h1>
+      <p class="employee-page-description">
+        Administra la información de tu equipo desde un solo lugar.
+      </p>
+    </div>
+  </header>
+
+  <div
+    class="notification-alert"
+    [class.notification-alert-success]="notification?.type === 'success'"
+    [class.notification-alert-error]="notification?.type === 'error'"
+    [attr.role]="notification?.type === 'error' ? 'alert' : 'status'"
+    [attr.aria-live]="notification?.type === 'error' ? 'assertive' : 'polite'"
+    [class.notification-alert-visible]="notification !== null"
+    [class.notification-alert-hidden]="notification === null"
+  >
+    <div class="notification-alert-icon" aria-hidden="true">
+      <span>{{ notification?.type === 'success' ? '✓' : '!' }}</span>
+    </div>
+    <div class="notification-alert-content">
+      <span class="notification-alert-label">{{ notification?.title }}</span>
+      <strong class="notification-alert-message">{{ notification?.message }}</strong>
+      <ul [hidden]="!notification?.details?.length">
+        <li *ngFor="let detail of notification?.details">{{ detail }}</li>
+      </ul>
+    </div>
+    <button
+      type="button"
+      class="notification-alert-close"
+      aria-label="Cerrar notificación"
+      (click)="cerrarNotificacion()"
+    >
+      <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+        <path d="m5 5 10 10M15 5 5 15" />
+      </svg>
+    </button>
+  </div>
+
+  <section class="employee-workspace" aria-label="Administración de empleados">
+    <app-empleado-form
+      [empleado]="empleadoSeleccionado"
+      (submitEmpleado)="onSubmitEmpleado($event)"
+      (formularioInvalido)="onFormularioInvalido($event)"
+      (nuevoEmpleado)="onNuevoEmpleado()"
+    ></app-empleado-form>
+
+    <app-empleado-list
+      [empleados]="(empleados$ | async) ?? []"
+      (editarEmpleado)="onEditarEmpleado($event)"
+      (eliminarEmpleado)="onEliminarEmpleado($event)"
+    ></app-empleado-list>
+  </section>
+</main>

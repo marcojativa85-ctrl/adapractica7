@@ -1,0 +1,136 @@
+{
+  "info": {
+    "name": "Mean Employee API",
+    "description": "Colección para probar el CRUD de empleados del backend.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "d7c5d895-07df-4d74-a8d7-6dca5215d0d1"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "empleado_id",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Get empleados",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/empleados",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "empleados"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create empleado",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.response.code === 200 || pm.response.code === 201) {",
+              "  const response = pm.response.json();",
+              "  if (response && response._id) {",
+              "    pm.collectionVariables.set('empleado_id', response._id);",
+              "  }",
+              "}",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Marco Jativa\",\n  \"cargo\": \"Desarrollador\",\n  \"departamento\": \"IT\",\n  \"sueldo\": 2500\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/empleados",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "empleados"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update empleado",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Marco Actualizado\",\n  \"cargo\": \"Senior Developer\",\n  \"departamento\": \"Tecnología\",\n  \"sueldo\": 3000\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/empleados/{{empleado_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "empleados",
+            "{{empleado_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete empleado",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/empleados/{{empleado_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "empleados",
+            "{{empleado_id}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

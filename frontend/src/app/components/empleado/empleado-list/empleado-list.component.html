@@ -1,0 +1,77 @@
+<section class="employee-panel employee-list-panel">
+  <header class="panel-heading employee-list-heading">
+    <div>
+      <p class="panel-eyebrow">DIRECTORIO</p>
+      <h2>Equipo de trabajo</h2>
+      <p class="panel-description">Consulta y administra los empleados registrados.</p>
+    </div>
+    <span class="employee-count">
+      {{ empleadosList.length }} {{ empleadosList.length === 1 ? 'persona' : 'personas' }}
+    </span>
+  </header>
+
+  <div class="employee-empty-state" [hidden]="empleadosList.length > 0">
+    <span class="empty-state-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false">
+        <path d="M16 20v-1.5a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4V20m7-9a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm8-3v6m-3-3h6" />
+      </svg>
+    </span>
+    <h3>Aún no hay empleados</h3>
+    <p>Cuando registres a alguien, aparecerá aquí.</p>
+  </div>
+
+  <div class="employee-table-wrap" [hidden]="empleadosList.length === 0">
+    <table class="employee-table">
+      <thead>
+        <tr>
+          <th scope="col">Empleado</th>
+          <th scope="col">Cargo</th>
+          <th scope="col">Departamento</th>
+          <th scope="col">Sueldo</th>
+          <th scope="col" class="employee-actions-heading">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empleado of empleadosList">
+          <td>
+            <div class="employee-identity">
+              <span class="employee-avatar" aria-hidden="true">
+                {{ empleado.nombre.slice(0, 1).toUpperCase() }}
+              </span>
+              <span class="employee-name">{{ empleado.nombre }}</span>
+            </div>
+          </td>
+          <td>{{ empleado.cargo }}</td>
+          <td><span class="department-tag">{{ empleado.departamento }}</span></td>
+          <td class="employee-salary">{{ empleado.sueldo | currency:'USD':'symbol':'1.2-2' }}</td>
+          <td>
+            <div class="employee-row-actions">
+              <button
+                type="button"
+                class="employee-icon-button employee-edit-button"
+                [attr.aria-label]="'Editar a ' + empleado.nombre"
+                (click)="onEditar(empleado)"
+              >
+                <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                  <path d="m13.8 3.2 3 3M3 17l3.7-.8L16.5 6.4a2.1 2.1 0 0 0-3-3L3.7 13.2 3 17Z" />
+                </svg>
+                <span>Editar</span>
+              </button>
+              <button
+                type="button"
+                class="employee-icon-button employee-delete-button"
+                [attr.aria-label]="'Eliminar a ' + empleado.nombre"
+                (click)="onEliminar(empleado)"
+              >
+                <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                  <path d="M3.5 5.5h13m-11.5 0 .8 11h8.4l.8-11M7.5 5.5V3.8h5v1.7m-4 3v5m3-5v5" />
+                </svg>
+                <span>Eliminar</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

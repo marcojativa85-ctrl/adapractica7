@@ -1,0 +1,91 @@
+<section class="employee-panel employee-form-panel">
+  <header class="panel-heading">
+    <div>
+      <p class="panel-eyebrow">{{ empleado._id ? 'ACTUALIZACIÓN' : 'NUEVO INGRESO' }}</p>
+      <h2>{{ empleado._id ? 'Editar empleado' : 'Registrar empleado' }}</h2>
+      <p class="panel-description">
+        {{ empleado._id ? 'Modifica los datos del empleado.' : 'Completa la información para añadir a una persona al equipo.' }}
+      </p>
+    </div>
+    <span class="panel-heading-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false">
+        <path d="M16 20v-1.5a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4V20m7-9a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm8-3v6m-3-3h6" />
+      </svg>
+    </span>
+  </header>
+
+  <form #empleadoForm="ngForm" (ngSubmit)="onSubmit(empleadoForm)">
+    <div class="employee-field">
+      <label for="employee-name">Nombre completo</label>
+      <input
+        id="employee-name"
+        type="text"
+        name="nombre"
+        placeholder="Ej. Andrea López"
+        autocomplete="name"
+        [(ngModel)]="empleado.nombre"
+        minlength="2"
+        required
+      />
+    </div>
+
+    <div class="employee-field">
+      <label for="employee-role">Cargo</label>
+      <input
+        id="employee-role"
+        type="text"
+        name="cargo"
+        placeholder="Ej. Analista de sistemas"
+        [(ngModel)]="empleado.cargo"
+        minlength="2"
+        required
+      />
+    </div>
+
+    <div class="employee-field">
+      <label for="employee-department">Departamento</label>
+      <input
+        id="employee-department"
+        type="text"
+        name="departamento"
+        placeholder="Ej. Tecnología"
+        [(ngModel)]="empleado.departamento"
+        minlength="2"
+        required
+      />
+    </div>
+
+    <div class="employee-field">
+      <label for="employee-salary">Sueldo mensual</label>
+      <div class="employee-input-prefix">
+        <span aria-hidden="true">$</span>
+        <input
+          id="employee-salary"
+          type="number"
+          name="sueldo"
+          placeholder="0.00"
+          min="0.01"
+          step="0.01"
+          [(ngModel)]="empleado.sueldo"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="employee-form-actions">
+      <button type="submit" class="employee-button employee-button-primary">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M10 4v12m-6-6h12" />
+        </svg>
+        {{ empleado._id ? 'Guardar cambios' : 'Crear empleado' }}
+      </button>
+      <button
+        type="button"
+        class="employee-button employee-button-secondary"
+        (click)="nuevoEmpleado.emit()"
+      >
+        {{ empleado._id ? 'Cancelar' : 'Limpiar' }}
+      </button>
+    </div>
+  </form>
+</section>

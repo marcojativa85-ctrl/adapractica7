@@ -1,0 +1,212 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f4f7fb;
+  color: #172033;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: #f4f7fb;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 90% 0%, rgb(218 231 255 / 48%), transparent 34rem),
+    #f4f7fb;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  color: #fff;
+  background: #3459a8;
+}
+
+.notification-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  width: 100%;
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid;
+  border-left-width: 5px;
+  border-radius: 0.65rem;
+  box-shadow: 0 3px 10px rgb(25 39 68 / 7%);
+}
+
+.notification-alert-error {
+  color: #7f1d1d;
+  background: #fff1f1;
+  border-color: #f3b6b6;
+  border-left-color: #c53030;
+}
+
+.notification-alert-success {
+  color: #14532d;
+  background: #effaf3;
+  border-color: #b8e4c7;
+  border-left-color: #27834b;
+}
+
+.notification-alert-hidden,
+.notification-alert-content ul[hidden] {
+  display: none;
+}
+
+.notification-alert-visible {
+  display: flex;
+}
+
+.notification-alert-icon {
+  display: grid;
+  flex: 0 0 2.35rem;
+  width: 2.35rem;
+  height: 2.35rem;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  font-weight: 750;
+  line-height: 1;
+}
+
+.notification-alert-error .notification-alert-icon {
+  color: #b42318;
+  background: #fee2e2;
+}
+
+.notification-alert-success .notification-alert-icon {
+  color: #18733d;
+  background: #d8f3e1;
+}
+
+.notification-alert-content {
+  flex: 1;
+  min-width: 0;
+  padding-top: 0.05rem;
+}
+
+.notification-alert-label {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.notification-alert-error .notification-alert-label {
+  color: #991b1b;
+}
+
+.notification-alert-success .notification-alert-label {
+  color: #17643a;
+}
+
+.notification-alert-message {
+  display: block;
+  font-size: 0.96rem;
+  font-weight: 600;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.notification-alert-error .notification-alert-message {
+  color: #5f1717;
+}
+
+.notification-alert-success .notification-alert-message {
+  color: #174b2c;
+}
+
+.notification-alert-content ul {
+  margin: 0.55rem 0 0;
+  padding: 0.55rem 0 0 1.1rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.notification-alert-error .notification-alert-content ul {
+  color: #7f3030;
+  border-top: 1px solid #f3caca;
+}
+
+.notification-alert-success .notification-alert-content ul {
+  color: #27633e;
+  border-top: 1px solid #ccebd6;
+}
+
+.notification-alert-close {
+  display: grid;
+  flex: 0 0 2rem;
+  width: 2rem;
+  height: 2rem;
+  margin: -0.35rem -0.35rem 0 0;
+  padding: 0;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 0.45rem;
+  cursor: pointer;
+  transition: color 140ms ease, background-color 140ms ease;
+}
+
+.notification-alert-error .notification-alert-close {
+  color: #874747;
+}
+
+.notification-alert-success .notification-alert-close {
+  color: #467458;
+}
+
+.notification-alert-error .notification-alert-close:hover {
+  color: #7f1d1d;
+  background: #fee2e2;
+}
+
+.notification-alert-success .notification-alert-close:hover {
+  color: #14532d;
+  background: #d8f3e1;
+}
+
+.notification-alert-close:focus-visible {
+  outline: 2px solid #b42318;
+  outline-offset: 2px;
+}
+
+.notification-alert-close svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 1.8;
+}
+
+@media (max-width: 575.98px) {
+  .notification-alert {
+    gap: 0.65rem;
+    padding: 0.85rem;
+  }
+}

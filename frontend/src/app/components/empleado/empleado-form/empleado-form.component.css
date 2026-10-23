@@ -1,0 +1,192 @@
+:host {
+  display: block;
+}
+
+.employee-panel {
+  min-width: 0;
+  padding: 1.45rem;
+  background: #fff;
+  border: 1px solid #e6eaf1;
+  border-radius: 1rem;
+  box-shadow: 0 5px 20px rgb(25 39 68 / 5%);
+}
+
+.panel-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.85rem;
+  margin-bottom: 1.45rem;
+}
+
+.panel-eyebrow {
+  margin-bottom: 0.45rem;
+  color: #526da2;
+}
+
+.panel-heading h2 {
+  margin: 0;
+  color: #1b263b;
+  font-size: 1.22rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
+.panel-description {
+  margin: 0.4rem 0 0;
+  color: #758198;
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.panel-heading-icon {
+  display: grid;
+  flex: 0 0 2.6rem;
+  width: 2.6rem;
+  height: 2.6rem;
+  place-items: center;
+  color: #365a9b;
+  background: #edf3ff;
+  border-radius: 0.75rem;
+}
+
+.panel-heading-icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.55;
+}
+
+.employee-field {
+  margin-bottom: 1.1rem;
+}
+
+.employee-field label {
+  display: block;
+  margin-bottom: 0.42rem;
+  color: #344158;
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.employee-field input {
+  display: block;
+  width: 100%;
+  min-height: 2.85rem;
+  padding: 0.7rem 0.8rem;
+  color: #202b40;
+  background: #fff;
+  border: 1px solid #d9dfeb;
+  border-radius: 0.55rem;
+  outline: none;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.employee-field input::placeholder {
+  color: #a0a9b8;
+}
+
+.employee-field input:hover {
+  border-color: #abb8ce;
+}
+
+.employee-field input:focus {
+  border-color: #5177ba;
+  box-shadow: 0 0 0 3px rgb(81 119 186 / 14%);
+}
+
+.employee-input-prefix {
+  position: relative;
+}
+
+.employee-input-prefix > span {
+  position: absolute;
+  top: 50%;
+  left: 0.85rem;
+  color: #7b879a;
+  font-size: 0.9rem;
+  transform: translateY(-50%);
+}
+
+.employee-input-prefix input {
+  padding-left: 1.7rem;
+}
+
+.employee-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.55rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid #edf0f5;
+}
+
+.employee-button {
+  display: inline-flex;
+  min-height: 2.65rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid transparent;
+  border-radius: 0.55rem;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 650;
+  line-height: 1.2;
+  transition: background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+}
+
+.employee-button:active {
+  transform: translateY(1px);
+}
+
+.employee-button:focus-visible {
+  outline: 3px solid rgb(81 119 186 / 28%);
+  outline-offset: 2px;
+}
+
+.employee-button-primary {
+  flex: 1 1 auto;
+  color: #fff;
+  background: #345a9d;
+  box-shadow: 0 2px 5px rgb(52 90 157 / 16%);
+}
+
+.employee-button-primary:hover {
+  background: #294a84;
+  box-shadow: 0 4px 10px rgb(52 90 157 / 22%);
+}
+
+.employee-button-secondary {
+  color: #44516a;
+  background: #fff;
+  border-color: #d9dfeb;
+}
+
+.employee-button-secondary:hover {
+  background: #f5f7fb;
+  border-color: #bbc6d8;
+}
+
+.employee-button svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 1.8;
+}
+
+@media (max-width: 575.98px) {
+  .employee-panel {
+    padding: 1.1rem;
+    border-radius: 0.8rem;
+  }
+}
